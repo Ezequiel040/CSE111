@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='proj.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Leaderboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="leaderboard-section">
+            <h2>Top Players</h2>
+            <ul class="leaderboard">
+                {% if not top_players %}
+                    <p>No players to display</p>
+                {% else %}
+                    {% for player in top_players %}
+                        <li>{{ loop.index }}. {{ player[0] }} - Level {{ player[1] }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+        
+        <section class="posts-section">
+            <h2>Top 5 Posts</h2>
+            <ul class="leaderboard">
+                {% if not top_posts %}
+                    <p>No posts to display</p>
+                {% else %}
+                    {% for post in top_posts %}
+                        <li>
+                            <img src="{{ url_for('uploaded_file', filename=post['file_path']) }}" alt="Post Image">
+                            <p><strong>{{ post['username'] }}</strong> - {{ post['like_count'] }} likes</p>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+        
+        <section class="puzzles-section">
+            <h2>Most Solved Puzzles</h2>
+            <ul class="leaderboard">
+                {% if not most_solved_puzzles %}
+                    <p>No puzzles to display</p>
+                {% else %}
+                    {% for puzzle in most_solved_puzzles %}
+                        <li>
+                            <img src="{{ url_for('uploaded_file', filename=puzzle['file_path']) }}" alt="Puzzle Image">
+                            <p><strong>{{ puzzle['username'] }}</strong> - {{ puzzle['solve_count'] }} solves</p>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+        
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Image Puzzle App</p>
+    </footer>
+</body>
+</html>

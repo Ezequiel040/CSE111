@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='proj.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Your Profile</h1>
+        <nav>
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/leader">Leaderboard</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-section">
+            <h2>Profile Details</h2>
+            <p><strong>Username:</strong> {{ username }}</p>
+            <p><strong>Posts:</strong> {{ posts }}</p>
+            <p><strong>Posts Solved:</strong> {{ posts_solved }}</p>
+            <!-- Link to Make Post page -->
+            <a href="/post" class="btn">Create a New Post</a>
+            <p></p>
+            <p></p>
+            <!-- Delete Account button -->
+            <form action="/delete-account" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.')">
+                <button type="submit" class="btn delete-btn">Delete Account</button>
+            </form>
+            <p></p>
+            <p></p>
+            <!-- Delete Posts page -->
+            <a href="/delete-posts" class="btn">Manage Posts</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Image Puzzle App</p>
+    </footer>
+</body>
+</html>

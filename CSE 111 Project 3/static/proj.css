@@ -1,0 +1,233 @@
+/* Ensure the page fills the viewport and pushes the footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column; /* Arrange header, main, and footer in a column */
+    min-height: 100vh; /* Ensure the body covers the full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Flexbox container to center elements vertically and horizontally */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #e0e7ff; /* Subtle background color for pages */
+}
+
+/* Styling for forms such as login and create account */
+.login-box {
+    background: #fff; /* White background for forms */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Responsive width */
+    text-align: center; /* Center text */
+}
+
+/* Large headings */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #4caf50; /* Green accent for titles */
+}
+
+/* Styling for input fields */
+.input-group {
+    margin-bottom: 1.5rem; /* Spacing between inputs */
+    text-align: left; /* Align labels */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem; /* Spacing below label */
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-family: inherit; /* Match the page's font */
+}
+
+/* Disable resizing for textareas */
+textarea {
+    resize: none;
+}
+
+/* File input styling */
+input[type="file"] {
+    font-size: 1rem; /* Readable file input */
+    border: none; /* Remove border for cleaner look */
+    background: none; /* Transparent background */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #4caf50; /* Green button for file input */
+    color: white; /* White text */
+    border: none;
+    padding: 0.5rem 1rem; /* Padding inside button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Button styling */
+.btn {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase; /* Uppercase text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Header styling */
+header {
+    background: #4caf50; /* Green header background */
+    color: white;
+    padding: 1rem; /* Space around header elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem; /* Space between nav items */
+}
+
+nav ul li a {
+    color: white; /* White links */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Main content takes up remaining space, pushing footer to the bottom */
+main {
+    flex-grow: 1; /* Expands to fill available vertical space */
+    padding: 2rem; /* Add padding to prevent content from touching the edges */
+    text-align: center;
+}
+
+/* Styling for leaderboard, profile, and make post sections */
+.leaderboard-section, .profile-section, .make-post {
+    margin: 2rem auto;
+    background: #fff; /* White background */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 600px; /* Responsive width */
+    text-align: center; /* Center text */
+}
+
+.leaderboard li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer styling remains at the bottom */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333; /* Dark footer */
+    color: white; /* White text */
+    width: 100%;
+    position: relative; /* Change from absolute to relative */
+}
+
+
+/* General styling for leaderboard sections
+.leaderboard-section,
+.posts-section,
+.puzzles-section {
+    margin: 2em 0;
+} */
+
+.leaderboard,
+.posts-section ul,
+.puzzles-section ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.leaderboard li,
+.posts-section ul li,
+.puzzles-section ul li {
+    margin: 0.5em 0;
+    padding: 0.75em;
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for list items */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spread items evenly */
+    max-width: 600px; /* Limit width for a cleaner appearance */
+    margin: 0.5em auto; /* Center list items */
+}
+
+/* Styling for the search results section */
+.search-results ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.search-results li {
+    display: flex; /* Align image and text side by side */
+    align-items: center;
+    margin: 1em 0; /* Space between list items */
+    padding: 1em;
+    border: 1px solid #ccc; /* Add a border for each result */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+.search-results li img {
+    width: 150px; /* Set the width of the images */
+    height: 100px; /* Set the height of the images */
+    margin-right: 1em; /* Space between image and text */
+    object-fit: cover; /* Ensure the image covers the dimensions without distortion */
+    border-radius: 4px; /* Optional: rounded edges for the images */
+}
+
+/* Styling for the text content in each result */
+.search-results li p {
+    margin: 0;
+    line-height: 1.5;
+}
+.leaderboard img {
+    width: 100px; /* Set width */
+    height: 100px; /* Set height */
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    margin-right: 10px; /* Add space between image and text */
+    border-radius: 5px; /* Optional: rounded edges */
+}
+
+/* Ensure consistent sizing for all images */
+img {
+    display: block;
+    max-width: 100%; /* Ensure responsiveness */
+    object-fit: cover; /* Ensure images cover the specified size without distortion */
+}
+
+/* Puzzle images specifically */
+.puzzle-image {
+    width: 300px; /* Set desired width */
+    height: 300px; /* Set desired height */
+    object-fit: cover; /* Crop the image to fit within these dimensions */
+    border: 2px solid #ccc; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Rounded corners */
+    margin: 10px auto; /* Center the image */
+}

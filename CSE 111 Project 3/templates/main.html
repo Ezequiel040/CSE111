@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Puzzle App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='proj.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Image Puzzle App</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/leader">Leaderboard</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/sign_in">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="welcome">
+            <h2>Welcome, {{ username }}!</h2>
+            <p>Solve puzzles, post fun facts, and level up!</p>
+        </section>
+        <section class="image-section">
+            <h2>Random Puzzle</h2>
+            
+            <!-- Display the random puzzle image -->
+            <img src="{{ url_for('uploaded_file', filename=puzzle_image_path) }}" alt="Puzzle Image" class="puzzle-image">
+            
+            <!-- Display the puzzle question -->
+            <p class="puzzle-question">{{ puzzle_question }}</p>
+                <!-- Like button and like counter -->
+            <div class="like-section">
+                <form action="/like-post" method="POST" class="like-form">
+                    <input type="hidden" name="pic_id" value="{{ pic_id }}">
+                    <button type="submit" class="like-button">
+                        👍 Like
+                    </button>
+                </form>
+                <span class="like-count">{{ like_count }} Likes</span>
+            </div>
+            
+            <!-- Form to submit the puzzle answer -->
+            <form action="/submit-answer" method="POST">
+                <div class="input-group">
+                    <label for="puzzle-answer">Your Answer:</label>
+                    <input type="text" id="puzzle-answer" name="puzzle_answer" required>
+                </div>
+                <input type="hidden" name="puzzle_id" value="{{ puzzle_id }}">
+                <button type="submit" class="btn">Submit Answer</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Image Puzzle App</p>
+    </footer>
+</body>
+</html>
